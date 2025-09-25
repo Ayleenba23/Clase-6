@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gráficos de Maquillaje</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+  <h2>Ventas de Maquillaje en Distintos Países</h2>
+  <canvas id="aqui"></canvas>
+  <h2>Tendencias de Maquillaje</h2>
+  <canvas id="alla"></canvas>
+
+  <p>Más información en 
+    <a href="https://www.chartjs.org/docs/latest/getting-started/" target="_blank">Chart.js</a>, 
+    y otro gráfico <a href="page.html">por acá</a>.</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Gráfico de barras -->
+  <script>
+    new Chart("aqui", {
+      type: "bar",
+      data: {
+        labels: ['EE.UU.', 'México', 'Argentina', 'Francia', 'Japón', 'Chile'],
+        datasets: [{
+          label: "Ventas de Maquillaje (millones USD)",
+          data: [12000, 8500, 4500, 11000, 9500, 3000],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(255, 159, 64, 0.5)',
+            'rgba(255, 205, 86, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(255, 99, 200, 0.5)',
+            'rgba(255, 180, 220, 0.5)',
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(153, 102, 255)',
+            'rgb(255, 99, 200)',
+            'rgb(255, 180, 220)',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {beginAtZero: true }
+        }
+      }
+    });
+  </script>
+
+  <!-- Gráfico de líneas -->
+  <script>
+    new Chart("alla", {
+      type: "line",
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+        datasets: [
+          {
+            label: "Ventas de Labiales (millones USD)",
+            data: [2500, 1800, 2000, 2600, 3100, 3500],
+            borderWidth: 2,
+            borderColor:"rgb(255,105,180)",
+            backgroundColor:"rgba(255,105,180,0.2)"
+          },
+          {
+            label: "Ventas de Bases (millones USD)",
+            data: [4000, 3000, 3500, 4200, 4600, 5000], 
+            borderWidth: 2,
+            borderColor: "rgb(186,85,211)",
+            backgroundColor: "rgba(186,85,211,0.2)"
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

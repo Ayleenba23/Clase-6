@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relación Precio-Calidad de Labiales</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <h2>Relación Precio vs. Calidad de Labiales</h2>
+  <canvas id="aqui"></canvas>
+  
+  <p>Más información en 
+    <a href="https://www.chartjs.org/docs/latest/getting-started/" target="_blank">Chart.js</a> 
+    y ahora vuelta a la <a href="index.html">portada</a>.
+  </p>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    new Chart("aqui", {
+      type: "scatter",
+      data: {
+        datasets: [{
+          label: "Labiales",
+          pointRadius: 6,
+          pointBackgroundColor: "rgba(255,105,180,0.8)",
+          pointBorderWidth: 1,
+          borderColor: "rgb(199,21,133)",
+          data: [
+            { x: 5, y: 6 },  // Maybelline SuperStay
+            { x: 8, y: 9 },  // MAC Retro Matte
+            { x: 20, y: 9 }, // Dior Rouge
+            { x: 15, y: 8 }, // Fenty Beauty
+            { x: 12, y: 7 }, // NYX Suede
+            { x: 30, y: 10 },// Chanel Rouge Allure
+          ],
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            title: { display: true, text: "Precio (USD)" }
+          },
+          y: {
+            title: { display: true, text: "Calidad (1 a 10)" },
+            min: 0,
+            max: 10
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
